@@ -1,0 +1,91 @@
+ <style>
+        /*
+          Custom CSS for smooth transitions and a few key styles.
+          We use a serif font for headers and a sans-serif for body text.
+        */
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /*
+          This class will control the "book opening" effect.
+          The transition gives a smooth animation when the classes are toggled.
+        */
+        #intro-screen {
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+
+        /*
+          This class is used to hide elements with a smooth fade-out.
+        */
+        .fade-out {
+            opacity: 0;
+            transform: translateY(-50px);
+            pointer-events: none; /* Prevents user from clicking on the hidden element */
+        }
+
+        /*
+          This class ensures smooth scrolling when navigating between sections.
+        */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /*
+          Custom styles for the image carousel.
+        */
+        .carousel-item {
+            display: none;
+            width: 100%;
+        }
+        .carousel-item.active {
+            display: block;
+        }
+        
+        /*
+          Modal styles: The overlay covers the whole screen with a dark,
+          semi-transparent background. The modal itself is centered.
+        */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+    </style>
